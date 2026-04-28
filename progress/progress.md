@@ -112,3 +112,35 @@ Blockers:
 
 Next Suggested Job:
 - JOB-004
+
+---
+
+## JOB-004
+Status: DONE
+
+Changed Files:
+- services/storageService.ts (new)
+- hooks/useAuth.tsx (new)
+- app/_layout.tsx
+- app/index.tsx
+- app/auth/login.tsx
+
+Summary:
+- Created storageService.ts with in-memory Map as AsyncStorage fallback
+- Created AuthProvider context with login, register, logout actions
+- Created useAuth hook exposing user, isAuthenticated, isLoading, login, register, logout
+- Root layout (_layout.tsx) wrapped with AuthProvider
+- Entry screen (index.tsx) redirects to tabs if authenticated, otherwise to auth/login
+- Login screen connected to auth login action
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- AsyncStorage (@react-native-async-storage/async-storage) is NOT installed in the project.
+  Per JOB-004 spec, package.json cannot be modified. StorageService uses an in-memory Map
+  as a fallback. Real session persistence requires installing the package.
+
+Next Suggested Job:
+- JOB-005

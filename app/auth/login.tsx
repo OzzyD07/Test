@@ -6,9 +6,11 @@ import { Screen } from "../../components/Screen";
 import { AppText } from "../../components/AppText";
 import { PrimaryButton } from "../../components/PrimaryButton";
 import { Input } from "../../components/Input";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function LoginScreen() {
   const router = useRouter();
+  const { login } = useAuth();
 
   return (
     <Screen>
@@ -23,7 +25,11 @@ export default function LoginScreen() {
           <Input label="Password" placeholder="••••••••" secureTextEntry />
         </View>
 
-        <PrimaryButton title="Sign In" onPress={() => router.push("/(tabs)")} containerStyle={styles.button} />
+        <PrimaryButton
+          title="Sign In"
+          onPress={() => login("user@example.com", "").then(() => router.replace("/(tabs)"))}
+          containerStyle={styles.button}
+        />
       </View>
     </Screen>
   );
