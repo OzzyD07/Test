@@ -144,3 +144,30 @@ Blockers:
 
 Next Suggested Job:
 - JOB-005
+
+---
+
+## JOB-005
+Status: DONE
+
+Changed Files:
+- app/auth/login.tsx
+- app/auth/register.tsx
+- hooks/useAuth.tsx
+
+Summary:
+- Login screen: email + password form, validation, loading/error states, link to register
+- Register screen: name + email + password form, validation, loading/error states, link to login
+- Both screens connected to useAuth (login, register) with mock delay
+- Added error + clearError to AuthProvider for validation feedback
+- Disabled submit button while submitting or when fields are empty
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- None
+
+Next Suggested Job:
+- JOB-006
