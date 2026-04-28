@@ -202,3 +202,30 @@ Blockers:
 
 Next Suggested Job:
 - JOB-007
+
+---
+
+## JOB-007
+Status: DONE
+
+Changed Files:
+- components/TransactionListItem.tsx (new)
+- app/(tabs)/transactions.tsx
+
+Summary:
+- TransactionListItem: Pressable list item with icon, title, category, date, amount, income/expense coloring
+- Transactions screen: FlatList with all mock transactions sorted by date desc
+- Navigation: Tapping a transaction navigates to /transaction/[id]
+- Empty state shown when no transactions exist
+- Reanimated FadeInDown staggered animations for list items
+- Uses mock data, categories, and formatters from JOB-003
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- None
+
+Next Suggested Job:
+- JOB-008
