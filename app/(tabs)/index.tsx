@@ -1,22 +1,42 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { colors, spacing } from "../../constants/theme";
+import { Screen } from "../../components/Screen";
+import { AppText } from "../../components/AppText";
+import { Card } from "../../components/Card";
 
 export default function DashboardScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Dashboard</Text>
-    </View>
+    <Screen>
+      <View style={styles.content}>
+        <AppText variant="heading">Dashboard</AppText>
+
+        <View style={styles.cards}>
+          <Card variant="elevated">
+            <AppText variant="caption" color={colors.textMuted}>Balance</AppText>
+            <AppText variant="amount" color={colors.primary}>-</AppText>
+          </Card>
+          <Card variant="elevated">
+            <AppText variant="caption" color={colors.textMuted}>Income</AppText>
+            <AppText variant="amount" color={colors.secondary}>-</AppText>
+          </Card>
+          <Card variant="elevated">
+            <AppText variant="caption" color={colors.textMuted}>Expense</AppText>
+            <AppText variant="amount" color={colors.expense}>-</AppText>
+          </Card>
+        </View>
+      </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: spacing.lg,
+    gap: spacing.xl,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "600",
+  cards: {
+    gap: spacing.md,
   },
 });

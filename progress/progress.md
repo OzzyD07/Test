@@ -46,3 +46,38 @@ Blockers:
 
 Next Suggested Job:
 - JOB-002
+
+---
+
+## JOB-002
+Status: DONE
+
+Changed Files:
+- constants/theme.ts (new)
+- components/Screen.tsx (new)
+- components/AppText.tsx (new)
+- components/PrimaryButton.tsx (new)
+- components/Card.tsx (new)
+- components/Input.tsx (new)
+- app/auth/login.tsx
+- app/(tabs)/index.tsx
+
+Summary:
+- Created theme constants (colors, spacing, radius, typography, shadows) in constants/theme.ts
+- Created Screen component with SafeAreaView wrapper and StatusBar
+- Created AppText component with 7 variants (heading, title, subtitle, body, caption, button, amount)
+- Created PrimaryButton component with press/disabled states
+- Created Card component with default/elevated variants and shadow support
+- Created Input component with label, error, and TextInput delegation
+- Updated login screen to use Screen, AppText, PrimaryButton, and Input components
+- Updated dashboard screen to use Screen, AppText, and Card components
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- None
+
+Next Suggested Job:
+- JOB-003

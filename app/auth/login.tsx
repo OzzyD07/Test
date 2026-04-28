@@ -1,40 +1,47 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import { colors, spacing } from "../../constants/theme";
+import { Screen } from "../../components/Screen";
+import { AppText } from "../../components/AppText";
+import { PrimaryButton } from "../../components/PrimaryButton";
+import { Input } from "../../components/Input";
 
 export default function LoginScreen() {
   const router = useRouter();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <Pressable style={styles.button} onPress={() => router.push("/(tabs)")}>
-        <Text style={styles.buttonText}>Go to Dashboard</Text>
-      </Pressable>
-    </View>
+    <Screen>
+      <View style={styles.content}>
+        <AppText variant="heading">Login</AppText>
+        <AppText variant="body" color={colors.textSecondary} style={styles.subtitle}>
+          Sign in to your account
+        </AppText>
+
+        <View style={styles.form}>
+          <Input label="Email" placeholder="your@email.com" keyboardType="email-address" autoCapitalize="none" />
+          <Input label="Password" placeholder="••••••••" secureTextEntry />
+        </View>
+
+        <PrimaryButton title="Sign In" onPress={() => router.push("/(tabs)")} containerStyle={styles.button} />
+      </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    gap: spacing.lg,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "600",
+  subtitle: {
+    marginTop: -spacing.sm,
+  },
+  form: {
+    gap: spacing.md,
   },
   button: {
-    marginTop: 24,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    backgroundColor: "#007AFF",
-    borderRadius: 8,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "600",
+    marginTop: spacing.sm,
   },
 });
