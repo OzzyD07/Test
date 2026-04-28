@@ -171,3 +171,34 @@ Blockers:
 
 Next Suggested Job:
 - JOB-006
+
+---
+
+## JOB-006
+Status: DONE
+
+Changed Files:
+- components/BalanceCard.tsx (new)
+- components/SummaryCard.tsx (new)
+- components/CategorySpendingCard.tsx (new)
+- components/RecentTransactionItem.tsx (new)
+- app/(tabs)/index.tsx
+
+Summary:
+- BalanceCard: Total balance display with color coding (positive/negative)
+- SummaryCard: Income/Expense summary cards with icons and color coding
+- CategorySpendingCard: Category spending with progress bar visualization
+- RecentTransactionItem: Transaction list item with icon, title, category, date, amount
+- Dashboard screen: Full layout with balance, income/expense cards, category spending, recent transactions
+- Reanimated entrance animations (FadeIn, FadeInDown) for staggered card reveals
+- Uses mock data, formatters, and transaction helpers from JOB-003
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- None
+
+Next Suggested Job:
+- JOB-007
