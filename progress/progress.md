@@ -229,3 +229,31 @@ Blockers:
 
 Next Suggested Job:
 - JOB-008
+
+---
+
+## JOB-008
+Status: DONE
+
+Changed Files:
+- app/transaction/[id].tsx
+
+Summary:
+- Transaction detail screen with dynamic route param [id]
+- Finds matching mock transaction by ID and displays full details
+- Shows amount prominently with income/expense color coding
+- Category badge with icon, name, and color
+- Details card: title, type, category, date, description, transaction ID
+- Friendly "Transaction Not Found" state with back button for invalid/missing IDs
+- Reanimated FadeInDown staggered entrance animations
+- Uses findTransactionById, formatDate helpers and existing base components
+
+Validation:
+- npx tsc --noEmit PASSED
+- npm run lint PASSED
+
+Blockers:
+- None
+
+Next Suggested Job:
+- JOB-009
